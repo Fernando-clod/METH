@@ -1,0 +1,111 @@
+/* Estilos generales */
+
+body {
+  font-family: georgia, times, serif;
+  color: #333;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem; /* Aumento del tamaño del título principal */
+  margin-bottom: 1.5rem; /* Espaciado inferior */
+}
+
+p {
+  margin-bottom: 1.5rem; /* Espaciado inferior */
+}
+
+.container {
+  width: 85%; /* Corregido 'windth' a 'width' */
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #333;
+  color: white;
+  padding: 1rem 0; /* Reducción del padding para hacer más delgada la barra de navegación */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* Añadido un padding para separar el logo y la navegación */
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul li {
+  display: inline-block;
+  margin-left: 1rem; /* Separación entre elementos del menú */
+}
+
+.navigation ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease; /* Transición suave */
+  border-radius: 5px;
+}
+
+.navigation ul li a:hover {
+  background: #4a4a4a;
+}
+
+.main {
+  padding-top: 5rem; /* Espacio suficiente para evitar que el contenido se superponga con el encabezado fijo */
+}
+
+.footer {
+  background: #f2f2f2;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 2rem; /* Reducción del margen superior */
+}
+
+.footer p {
+  margin: 0; /* Eliminar el margen inferior de los párrafos en el pie de página */
+}
+
+/* Estilos para el menú desplegable */
+.menu-level-two {
+  display: none; /* Oculta inicialmente el menú desplegable */
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-level-two li {
+  padding: 0.5rem 1rem;
+}
+
+.menu-level-two li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-level-one__item--has-children:hover .menu-level-two {
+  display: block; /* Mostrar el menú desplegable al hacer hover sobre el elemento padre */
+}

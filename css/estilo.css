@@ -1,0 +1,110 @@
+body {
+  font-family: georgia, times, serif;
+  color: #333;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  margin: 0;
+  background-image: url("imagenes/fondo.jpg");
+}
+
+h1 {
+  font-size: 2rem; 
+  margin-bottom: 1.5rem; 
+}
+
+p {
+  margin-bottom: 1.5rem; 
+}
+
+.container {
+  width: 85%; 
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #C30707;
+  color: white;
+  padding: 1rem 0; 
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; 
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul li {
+  display: inline-block;
+  margin-left: 1rem; 
+}
+
+.navigation ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease; 
+  border-radius: 5px;
+}
+
+.navigation ul li a:hover {
+  background: #4a4a4a;
+}
+
+.main {
+  padding-top: 5rem; 
+}
+
+.footer {
+  background: #f2f2f2;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 2rem; 
+}
+
+.footer p {
+  margin: 0; 
+}
+
+/* Estilos para el menú desplegable */
+.menu-level-two {
+  display: none; /* Oculta inicialmente el menú desplegable */
+  position: absolute;
+  background-color: #C30707;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-level-two li {
+  padding: 0.5rem 1rem;
+}
+
+.menu-level-two li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-level-one__item--has-children:hover .menu-level-two {
+  display: block; /* Mostrar el menú desplegable al hacer hover sobre el elemento padre */
+}
