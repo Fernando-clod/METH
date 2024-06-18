@@ -203,10 +203,9 @@
     }
 
     .swiper-container {
-      width: 260%;
-      height: 300px;
+      width: 200%;
+      height: 400px; /* Ajusta la altura del contenedor del carrusel */
       margin: 20px 0;
-      overflow: hidden; /* Asegura que el contenido adicional no sea visible */
     }
 
     .swiper-wrapper {
@@ -216,15 +215,23 @@
 
     .swiper-slide {
       flex: 0 0 auto;
-      width: 250px;
+      width: 300px; /* Ajusta el ancho de las diapositivas */
+      height: 70%; /* Ajusta la altura de las diapositivas */
       display: flex;
-      justify-content: bootstrap;
+      justify-content: center;
       align-items: center;
       font-size: 1.2rem;
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin: 10px;
+      overflow: hidden;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .menu-level-two {
@@ -279,15 +286,9 @@
               </ul>
             </div>
           </li>
-          <li class="menu-level-one__item menu-level-one__item--no-children">
-            <a href="#">Nuevos</a>
-          </li>
-          <li class="menu-level-one__item menu-level-one__item--no-children">
-            <a href="#">Blog</a>
-          </li>
-          <li class="menu-level-one__item menu-level-one__item--no-children">
-            <a href="#">Catálogos Digitales</a>
-          </li>
+          <li class="menu-level-one__item"><a href="#">Nuevos</a></li>
+          <li class="menu-level-one__item"><a href="#">Blog</a></li>
+          <li class="menu-level-one__item"><a href="#">Catálogos Digitales</a></li>
         </ul>
       </nav>
     </div>
@@ -299,21 +300,18 @@
       <div class="banner">
         <h1>Bienvenidos a MejorasEnTuHogar</h1>
         <p><font color="white">Tu sitio de confianza para las mejores promociones y productos para tu hogar</font></p>
+	<p><font color="white">Aqui algunas de las marcas que vendemos</font></p>
       </div>
       
       <!-- Carrusel de productos/marcas -->
       <section class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img width="100%" src="imagenes/mary kay.png"></div>
-          <div class="swiper-slide"><img width="100%" src="imagenes/avon.png"></div>
-          <div class="swiper-slide"><img width="100%" src="imagenes/betterware.jpg"></div>
-          <div class="swiper-slide"><img width="100%" src="imagenes/jafra.jpg"></div>
-          <div class="swiper-slide"><img width="100%" src="imagenes/fuller.jfif"></div>
-          <div class="swiper-slide"><img width="100%" src="imagenes/mary kay.png"></div>
+          <div class="swiper-slide"><img width=50% src="imagenes/mary kay.png" alt="Mary Kay"></div>
+          <div class="swiper-slide"><img width=50% src="imagenes/avon.png" alt="Avon"></div>
+          <div class="swiper-slide"><img width=50% src="imagenes/betterware.jpg" alt="Betterware"></div>
+          <div class="swiper-slide"><img width=50% src="imagenes/jafra.jpg" alt="Jafra"></div>
+          <div class="swiper-slide"><img width=50% src="imagenes/fuller.jfif" alt="Fuller"></div>
         </div>
-        <!-- Añadir los botones de navegación -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
       </section>
 
       <!-- Sección de promociones -->
@@ -372,8 +370,10 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
+      slidesPerView: 'auto', // Ajuste automático del número de diapositivas visibles
       spaceBetween: 10,
+      loop: true, // Desplazamiento infinito
+      centeredSlides: true, // Centrar las diapositivas
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
