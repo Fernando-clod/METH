@@ -11,6 +11,7 @@
     html, body {
       height: 100%;
       margin: 0;
+      overflow-x: hidden; /* Evita el desbordamiento horizontal */
     }
 
     body {
@@ -24,7 +25,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      overflow-x: hidden; /* Evita el desbordamiento horizontal */
+      background-attachment: fixed; /* Fija la imagen de fondo */
     }
 
     h1 {
@@ -74,9 +75,12 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      display: flex;
+      align-items: center;
     }
 
     .navigation ul li {
+      position: relative;
       display: inline-block;
       margin-left: 1rem;
     }
@@ -89,6 +93,35 @@
     }
 
     .navigation ul li a:hover {
+      background: #4a4a4a;
+    }
+
+    .navigation ul li ul.menu-level-two {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #2C6C6C;
+      padding: 0;
+      list-style: none;
+      z-index: 1000;
+      margin: 0;
+    }
+
+    .navigation ul li:hover ul.menu-level-two {
+      display: block;
+    }
+
+    .navigation ul li ul.menu-level-two li {
+      display: block;
+    }
+
+    .navigation ul li ul.menu-level-two li a {
+      padding: 0.5rem 1rem;
+      color: white;
+    }
+
+    .navigation ul li ul.menu-level-two li a:hover {
       background: #4a4a4a;
     }
 
@@ -243,21 +276,20 @@
       <nav class="navigation">
         <ul class="menu-level-one">
           <li class="menu-level-one__item menu-level-one__item--has-children">
-            <a href="#" id="toggleProductos">Productos</a>
-            <div id="ProductosComponent" class="content">
-              <ul class="menu-level-two">
-                <li><a href="Recamara/recamara.html">Recámara</a></li>
-                <li><a href="Baño/baño.html">Baño</a></li>
-                <li><a href="Maquillaje/maquillaje.html">Maquillaje</a></li>
-                <li><a href="Perfumes/perfumes.html">Perfumes</a></li>
-                <li><a href="Hogar/Hogar.html">Hogar</a></li>
-                <li><a href="Cocina/cocina.html">Cocina</a></li>
-              </ul>
-            </div>
+            <a href="#">Productos</a>
+            <ul class="menu-level-two">
+              <a href="Recamara/recamara.html">Recámara</a></li>
+              <a href="Baño/baño.html">Baño</a></li>
+              <a href="Maquillaje/maquillaje.html">Maquillaje</a></li>
+              <a href="Perfumes/perfumes.html">Perfumes</a></li>
+              <a href="Hogar/Hogar.html">Hogar</a></li>
+              <a href="Cocina/cocina.html">Cocina</a></li>
+            </ul>
           </li>
           <li class="menu-level-one__item"><a href="#">Nuevos</a></li>
           <li class="menu-level-one__item"><a href="#">Blog</a></li>
-          <li class="menu-level-one__item"><a href="#">Catálogos Digitales</a></li>
+          <li class="menu-level-one__item"><a href="#">Ofertas</a></li>
+          <li class="menu-level-one__item"><a href="Contacto/contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -265,21 +297,21 @@
 
   <main class="main">
     <div class="container">
-      <!-- Banner de bienvenida -->
-      <div class="banner">
-        <h1>Bienvenidos a MejorasEnTuHogar</h1>
-        <p><font color="white">Tu sitio de confianza para las mejores promociones y productos para tu hogar</font></p>
-        <p><font color="white">Aquí algunas de las marcas que vendemos</font></p>
-      </div>
-      
-      <!-- Carrusel de productos/marcas -->
-      <section class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="imagenes/mary kay.png" alt="Mary Kay"></div>
-          <div class="swiper-slide"><img src="imagenes/avon.png" alt="Avon"></div>
-          <div class="swiper-slide"><img src="imagenes/betterware.png" alt="Betterware"></div>
-          <div class="swiper-slide"><img src="imagenes/jafra.jpg" alt="Jafra"></div>
-          <div class="swiper-slide"><img src="imagenes/fuller.jfif" alt="Fuller"></div>
+      <section class="banner">
+        <h1>Bienvenido a MejorasEnTuHogar</h1>
+        <p>Encuentra los mejores productos para tu hogar.</p>
+      </section>
+
+      <!-- Sección de carrusel de imágenes -->
+      <section class="carousel">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="imagenes/mary kay.png" alt="Mary Kay"></div>
+            <div class="swiper-slide"><img src="imagenes/avon.png" alt="Avon"></div>
+            <div class="swiper-slide"><img src="imagenes/betterware.png" alt="Betterware"></div>
+            <div class="swiper-slide"><img src="imagenes/jafra.jpg" alt="Jafra"></div>
+            <div class="swiper-slide"><img src="imagenes/fuller.jfif" alt="Fuller"></div>
+          </div>
         </div>
       </section>
 
@@ -339,17 +371,17 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 'auto', // Ajuste automático del número de diapositivas visibles
+      slidesPerView: 'auto',
       spaceBetween: 10,
-      loop: true, // Desplazamiento infinito
-      centeredSlides: true, // Centrar las diapositivas
+      loop: true,
+      centeredSlides: true,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
       breakpoints: {
         640: {
-          slidesPerView: 1, // Mostrar una diapositiva en dispositivos móviles
+          slidesPerView: 1,
           spaceBetween: 20,
         },
         768: {
