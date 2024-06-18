@@ -203,7 +203,8 @@
     }
 
     .swiper-container {
-      width: 200%;
+      width: 100%; /* Cambiamos el ancho al 100% para ocupar todo el espacio disponible */
+      max-width: 100%;
       height: 400px; /* Ajusta la altura del contenedor del carrusel */
       margin: 20px 0;
     }
@@ -215,7 +216,7 @@
 
     .swiper-slide {
       flex: 0 0 auto;
-      width: 300px; /* Ajusta el ancho de las diapositivas */
+      width: calc(100% / 3); /* Ajustamos el ancho de las diapositivas para mostrar tres en pantalla */
       height: 70%; /* Ajusta la altura de las diapositivas */
       display: flex;
       justify-content: center;
@@ -231,39 +232,7 @@
     .swiper-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    .menu-level-two {
-      display: none;
-      position: absolute;
-      background-color: #2C6C6C;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .menu-level-two li {
-      padding: 0.5rem 1rem;
-    }
-
-    .menu-level-two li a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .menu-level-one__item--has-children:hover .menu-level-two {
-      display: block;
-    }
-
-    .menu-level-two {
-      width: 150px;
-      padding: 10px 0;
-      text-align: left;
-    }
-
-    .menu-level-two li {
-      margin: 0;
+      object-fit: contain; /* Ajustamos para que la imagen se ajuste correctamente */
     }
   </style>
 </head>
@@ -277,12 +246,12 @@
             <a href="#" id="toggleProductos">Productos</a>
             <div id="ProductosComponent" class="content">
               <ul class="menu-level-two">
-                <a href="Recamara/recamara.html">Recámara</a></li>
-                <a href="Baño/baño.html">Baño</a></li>
-                <a href="Maquillaje/maquillaje.html">Maquillaje</a></li>
-                <a href="Perfumes/perfumes.html">Perfumes</a></li>
-                <a href="Hogar/Hogar.html">Hogar</a></li>
-                <a href="Cocina/cocina.html">Cocina</a></li>
+                <li><a href="Recamara/recamara.html">Recámara</a></li>
+                <li><a href="Baño/baño.html">Baño</a></li>
+                <li><a href="Maquillaje/maquillaje.html">Maquillaje</a></li>
+                <li><a href="Perfumes/perfumes.html">Perfumes</a></li>
+                <li><a href="Hogar/Hogar.html">Hogar</a></li>
+                <li><a href="Cocina/cocina.html">Cocina</a></li>
               </ul>
             </div>
           </li>
@@ -300,17 +269,17 @@
       <div class="banner">
         <h1>Bienvenidos a MejorasEnTuHogar</h1>
         <p><font color="white">Tu sitio de confianza para las mejores promociones y productos para tu hogar</font></p>
-	<p><font color="white">Aqui algunas de las marcas que vendemos</font></p>
+        <p><font color="white">Aquí algunas de las marcas que vendemos</font></p>
       </div>
       
       <!-- Carrusel de productos/marcas -->
       <section class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img width=50% src="imagenes/mary kay.png" alt="Mary Kay"></div>
-          <div class="swiper-slide"><img width=50% src="imagenes/avon.png" alt="Avon"></div>
-          <div class="swiper-slide"><img width=50% src="imagenes/betterware.jpg" alt="Betterware"></div>
-          <div class="swiper-slide"><img width=50% src="imagenes/jafra.jpg" alt="Jafra"></div>
-          <div class="swiper-slide"><img width=50% src="imagenes/fuller.jfif" alt="Fuller"></div>
+          <div class="swiper-slide"><img src="imagenes/mary kay.png" alt="Mary Kay"></div>
+          <div class="swiper-slide"><img src="imagenes/avon.png" alt="Avon"></div>
+          <div class="swiper-slide"><img src="imagenes/betterware.png" alt="Betterware"></div>
+          <div class="swiper-slide"><img src="imagenes/jafra.jpg" alt="Jafra"></div>
+          <div class="swiper-slide"><img src="imagenes/fuller.jfif" alt="Fuller"></div>
         </div>
       </section>
 
@@ -380,15 +349,15 @@
       },
       breakpoints: {
         640: {
-          slidesPerView: 2,
+          slidesPerView: 1, // Mostrar una diapositiva en dispositivos móviles
           spaceBetween: 20,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
       }
